@@ -1,0 +1,23 @@
+<h2>Winkelmandje</h2>
+
+<table class="table table-bordered table-inverse table-hover">
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Aantal</th>
+      <th colspan="2">Prijs per stuk</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order_items.each do |order_item| %>
+      <tr>
+        <td><%= order_item.product.name %></td>
+        <td><%= order_item.quantity %></td>
+        <td><%= number_to_currency(order_item.price) %></td>
+        <td><%= link_to "Verwijder", order_item_path(order_item), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Plaats bestelling", checkout_path, class: 'btn btn-primary' %>

@@ -1,0 +1,10 @@
+<div class="card-columns">
+  <% @brands.each do |brand| %>
+   <div class="card text-center">
+      <div class="card-body">
+        <h4 class="card-title"><%= brand.name %></h4>
+        <p class="card-text"><%= link_to "Producten (#{brand.products.count})", brand_products_path(brand), class: 'btn btn-primary' %></p>
+      </div>
+    </div>
+  <% end %>
+</div>

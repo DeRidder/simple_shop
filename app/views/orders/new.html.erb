@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-header">
+    <h2>Bestellen</h2>
+  <div class="card-body">
+    <%= form_for(@order, url: checkout_path) do |f| %>
+      <div class="card-text">
+        <div class="form-group">
+          <%= f.text_field :first_name, placeholder: 'Voornaam' %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :last_name, placeholder: 'Achternaam' %>
+        </div>
+      </div>
+      <%= f.submit 'Bestel nu', class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

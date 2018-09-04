@@ -1,0 +1,21 @@
+<h2><%= "#{@brand.name} telefoons" %></h2>
+
+<div class="card-columns">
+  <% @products.each do |product| %>
+   <div class="card text-center">
+      <div class="card-body">
+        <h4 class="card-title"><%= product.name %></h4>
+        <p class="card-text">
+          <%= number_to_currency(product.price) %>
+          <%= form_tag order_items_path do %>
+            <%= hidden_field_tag :product_id, product.id %>
+            <%= hidden_field_tag :price, product.price %>
+            <%= number_field_tag :quantity, nil, placeholder: 'Kies aantal' %>
+            <hr/>
+            <%= submit_tag "Add to cart", class: 'btn btn-primary' %>
+          <% end %>  
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>
